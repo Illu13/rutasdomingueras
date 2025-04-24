@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FotoRuta{% endblock %}
+
+{% block body %}
+    <h1>FotoRuta</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ foto_rutum.id }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ foto_rutum.ImageName }}</td>
+            </tr>
+            <tr>
+                <th>DescripcionFoto</th>
+                <td>{{ foto_rutum.descripcionFoto }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_foto_ruta_index') }}">back to list</a>
+
+    <a href="{{ path('app_foto_ruta_edit', {'id': foto_rutum.id}) }}">edit</a>
+
+    {{ include('foto_ruta/_delete_form.html.twig') }}
+{% endblock %}

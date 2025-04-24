@@ -1,0 +1,26 @@
+name: rutasdomingueras
+recipe: symfony
+config:
+  webroot: public
+  php: 8.2
+  ini:
+    memory_limit: 4096M
+    max_execution_time: 600
+    post_max_size: 2048M
+    php_extensions:
+      - zip
+services:
+  appserver:
+    portforward: true
+    overrides:
+      ports:
+        - '3777:80'
+        - '4777:443'
+  database:
+    type: mysql
+    portforward: true
+  phpmyadmin:
+    type: phpmyadmin
+    depends_on:
+      - database
+    portforward: true

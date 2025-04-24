@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FotoRuta index{% endblock %}
+
+{% block body %}
+    <h1>FotoRuta index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ImageName</th>
+                <th>DescripcionFoto</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for foto_rutum in foto_rutas %}
+            <tr>
+                <td>{{ foto_rutum.id }}</td>
+                <td>{{ foto_rutum.ImageName }}</td>
+                <td>{{ foto_rutum.descripcionFoto }}</td>
+                <td>
+                    <a href="{{ path('app_foto_ruta_show', {'id': foto_rutum.id}) }}">show</a>
+                    <a href="{{ path('app_foto_ruta_edit', {'id': foto_rutum.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_foto_ruta_new') }}">Create new</a>
+{% endblock %}

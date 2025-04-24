@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand text-center text-lg-start" href="{{ path('app_index') }}">Prueba</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            {% if app.user %}
+                <!-- Opciones para usuarios identificados -->
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-center" href="{{ path('app_ruta_new') }}">Subir rutas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-center" href="{{ path('app_ruta_index') }}">Ver rutas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-center" href="{{ path('app_foto_ruta_new') }}">Subir foto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-center" href="{{ path('app_logout') }}">Cerrar sesión</a>
+                </li>
+            {% else %}
+                <!-- Opciones para usuarios no identificados -->
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-center" href="{{ path('app_login') }}">Iniciar sesión</a>
+                </li>
+            {% endif %}
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ruta{% endblock %}
+
+{% block body %}
+    <h1>Ruta</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ rutum.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ rutum.nombre }}</td>
+            </tr>
+            <tr>
+                <th>DescripcionCorta</th>
+                <td>{{ rutum.descripcionCorta }}</td>
+            </tr>
+            <tr>
+                <th>DescripcionLarga</th>
+                <td>{{ rutum.descripcionLarga }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ rutum.imageName }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ rutum.updatedAt ? rutum.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ruta_index') }}">back to list</a>
+
+    <a href="{{ path('app_ruta_edit', {'id': rutum.id}) }}">edit</a>
+
+    {{ include('ruta/_delete_form.html.twig') }}
+{% endblock %}
